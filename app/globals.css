@@ -24,4 +24,27 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.center{
+  align-items: center;
+  justify-content: center;
+
+}
+
+.btn{
+  padding: 10vh 12%; 
+}
+
+.fontSize{
+  text-align: center;
+  font-size: 100px;
+  padding: 10vh 30vw;
+}
+.display{
+  display: flex;
 }
