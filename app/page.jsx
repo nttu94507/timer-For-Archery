@@ -1,11 +1,12 @@
 "use client";
 import Image from 'next/image'
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import './globals.css'
+import Head from 'next/head'
 
 export default function Home() {
-  
-    const [turn, setTurn] = useState(6)
+
+  const [turn, setTurn] = useState(6)
   const [secend, setSecend] = useState(180);
   const [reciprocal, setR] = useState(180);
   const [start, setStart] = useState(false);
@@ -16,9 +17,9 @@ export default function Home() {
     if (!start) {
       return
     }
-     timet = setInterval(() => {
-    
-      console.log(reciprocal)
+    timet = setInterval(() => {
+
+      // console.log(reciprocal)
       setR(reciprocal => reciprocal - 1)
     }, 1000)
     // console.log(reciprocal)
@@ -27,18 +28,20 @@ export default function Home() {
   }, [start])
 
 
-  useEffect(()=>{
-    if (reciprocal === 0 ){
+  useEffect(() => {
+    if (reciprocal === 0) {
       setStart(false)
       const audio = new Audio('shrill_whistle6.mp3')
       audio.play()
       // setTimeout(() => {
       //   audio.play()
       // }, 500);
-      
+
       // sleep(1)
-    } 
-  },[reciprocal])
+    }
+
+    // console.log(777)
+  }, [reciprocal])
 
   // const audioplay =()=>{
   //   createElement('audio,')
@@ -48,6 +51,7 @@ export default function Home() {
 
   return (
     <div className="center">
+
       <div className="fontSize">{reciprocal} </div>
       <div className="display">
         <div className="btn" onClick={() => {
@@ -57,6 +61,8 @@ export default function Home() {
         }}>Click</div>
         <div className="btn" onClick={() => {
           setStart(false)
+          const audio = new Audio('shrill_whistle6.mp3');
+          audio.play();
         }}>Stop</div>
         <div className="btn" onClick={() => {
           setR(secend)
@@ -77,6 +83,6 @@ export default function Home() {
     </div>
 
   )
-    
-  
+
+
 }
