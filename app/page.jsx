@@ -56,6 +56,7 @@ export default function Home() {
           setStart(true)
           // const audio = new Audio('shrill_whistle6.mp3');
           audio.play();
+          setTimeout(audio.play(), 1000*reciprocal);
         }}>Click</div>
         <div className="btn" onClick={() => {
           setStart(false)
