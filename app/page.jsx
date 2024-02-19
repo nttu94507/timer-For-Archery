@@ -31,8 +31,8 @@ export default function Home() {
   useEffect(() => {
     if (reciprocal === 0) {
       setStart(false)
-      const audio = new Audio('shrill_whistle6.mp3')
-      audio.play()
+      // const audio = new Audio('shrill_whistle6.mp3')
+      audioplay.play()
       // setTimeout(() => {
       //   audio.play()
       // }, 500);
@@ -45,9 +45,7 @@ export default function Home() {
     // console.log(777)
   }, [reciprocal])
 
-  // const audioplay =()=>{
-  //   createElement('audio,')
-  // }
+  const audioplay = new Audio('shrill_whistle6.mp3')
 
 
 
@@ -55,6 +53,7 @@ export default function Home() {
     <div className="center">
 
       <div className="fontSize">{reciprocal} </div>
+      <div className="fontSize">{start?1:0} </div>
       <div className="display">
         <div className="btn" onClick={() => {
           setStart(true)
