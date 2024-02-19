@@ -38,6 +38,8 @@ export default function Home() {
       // }, 500);
 
       // sleep(1)
+    }else{
+      return
     }
 
     // console.log(777)
