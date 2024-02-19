@@ -32,7 +32,7 @@ export default function Home() {
     if (reciprocal === 0) {
       setStart(false)
       const audio = new Audio('shrill_whistle6.mp3')
-      audioplay.play()
+      audio.play()
       // setTimeout(() => {
       //   audio.play()
       // }, 500);
