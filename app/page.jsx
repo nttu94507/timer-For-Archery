@@ -31,7 +31,7 @@ export default function Home() {
   useEffect(() => {
     if (reciprocal === 0) {
       setStart(false)
-      // const audio = new Audio('shrill_whistle6.mp3')
+      const audio = new Audio('shrill_whistle6.mp3')
       audioplay.play()
       // setTimeout(() => {
       //   audio.play()
@@ -45,7 +45,7 @@ export default function Home() {
     // console.log(777)
   }, [reciprocal])
 
-  const audioplay = new Audio('shrill_whistle6.mp3')
+  
 
 
 
