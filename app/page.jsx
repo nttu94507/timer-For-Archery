@@ -10,7 +10,8 @@ export default function Home() {
   const [secend, setSecend] = useState(180);
   const [reciprocal, setR] = useState(180);
   const [start, setStart] = useState(false);
-  const audio = new Audio('shrill_whistle6.mp3')
+  const [audio, SetAudio] = useState("");
+  // const audio = new Audio('shrill_whistle6.mp3')
 
   let timet
 
@@ -28,32 +29,28 @@ export default function Home() {
     return () => clearInterval(timet)
   }, [start])
 
-  useEffect((audio) => {
+  useEffect(() => {
     if (reciprocal === 0) {
       setStart(false)
-      // const audio = new Audio('shrill_whistle6.mp3')
       audio.play()
-      // setTimeout(() => {
-      //   audio.play()
-      // }, 500);
-
-      // sleep(1)
-    }else{
+    } else {
       return
     }
 
     // console.log(777)
   }, [reciprocal])
 
-  
 
+  useEffect(() => {
+    SetAudio(new Audio("shrill_whistle6.mp3"));
+  }, []);
 
 
   return (
     <div className="center">
-
+      {/* <iframe src="silence.mp3" allow="autoplay" id="audio" className="aduio"></iframe> */}
       <div className="fontSize">{reciprocal} </div>
-      <div className="fontSize">{start?1:0} </div>
+      <div className="fontSize">{start ? 1 : 0} </div>
       <div className="display">
         <div className="btn" onClick={() => {
           setStart(true)
