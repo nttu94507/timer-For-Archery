@@ -10,6 +10,7 @@ export default function Home() {
   const [secend, setSecend] = useState(180);
   const [reciprocal, setR] = useState(180);
   const [start, setStart] = useState(false);
+  const audio = new Audio('shrill_whistle6.mp3')
 
   let timet
 
@@ -27,11 +28,10 @@ export default function Home() {
     return () => clearInterval(timet)
   }, [start])
 
-
-  useEffect(() => {
+  useEffect((audio) => {
     if (reciprocal === 0) {
       setStart(false)
-      const audio = new Audio('shrill_whistle6.mp3')
+      // const audio = new Audio('shrill_whistle6.mp3')
       audio.play()
       // setTimeout(() => {
       //   audio.play()
