@@ -8,7 +8,7 @@ export default function Home() {
 
   const [turn, setTurn] = useState(6)
   const [secend, setSecend] = useState(180);
-  const [reciprocal, setR] = useState(180);
+  const [reciprocal, setR] = useState(10);
   const [start, setStart] = useState(false);
   const [audio, SetAudio] = useState("");
   // const audio = new Audio('shrill_whistle6.mp3')
@@ -54,12 +54,12 @@ export default function Home() {
       <div className="display">
         <div className="btn" onClick={() => {
           setStart(true)
-          const audio = new Audio('shrill_whistle6.mp3');
+          // const audio = new Audio('shrill_whistle6.mp3');
           audio.play();
         }}>Click</div>
         <div className="btn" onClick={() => {
           setStart(false)
-          const audio = new Audio('shrill_whistle6.mp3');
+          // const audio = new Audio('shrill_whistle6.mp3');
           audio.play();
         }}>Stop</div>
         <div className="btn" onClick={() => {
