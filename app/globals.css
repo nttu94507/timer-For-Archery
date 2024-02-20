@@ -37,18 +37,26 @@ body {
 }
 
 .btn{
-  padding: 10vh 12%; 
+  padding: 10vh 6%; 
+  font-size: 35px;
 }
 
 .fontSize{
   text-align: center;
   font-size: 100px;
   padding: 10vh 30vw;
+  /* color:rgb(39, 209, 59); */
+  color:rgb(0, 255, 76);
 }
+
 .display{
   display: flex;
 }
 
 .aduio{
   display: none;
+}
+
+.justfy{
+  justify-content: center;
 }

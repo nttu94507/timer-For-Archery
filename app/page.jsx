@@ -8,9 +8,11 @@ export default function Home() {
 
   const [turn, setTurn] = useState(6)
   const [secend, setSecend] = useState(180);
-  const [reciprocal, setR] = useState(10);
+  const [reciprocal, setR] = useState(180);
   const [start, setStart] = useState(false);
   const [audio, SetAudio] = useState("");
+  const [editswitch, setEditswitch] = useState(false);
+  const [timer,settimer] = useState("")
   // const audio = new Audio('shrill_whistle6.mp3')
 
   let timet
@@ -32,7 +34,7 @@ export default function Home() {
   useEffect(() => {
     if (reciprocal === 0) {
       setStart(false)
-      audio.play()
+      // audio.play()
     } else {
       return
     }
@@ -45,43 +47,48 @@ export default function Home() {
     SetAudio(new Audio("shrill_whistle6.mp3"));
   }, []);
 
+  // useEffect(()=>{
 
-  return (
-    <div className="center">
-      {/* <iframe src="silence.mp3" allow="autoplay" id="audio" className="aduio"></iframe> */}
-      <div className="fontSize">{reciprocal} </div>
-      <div className="fontSize">{start ? 1 : 0} </div>
-      <div className="display">
-        <div className="btn" onClick={() => {
-          setStart(true)
-          // const audio = new Audio('shrill_whistle6.mp3');
-          audio.play();
-          setTimeout(audio.play(), 1000*reciprocal);
-        }}>Click</div>
-        <div className="btn" onClick={() => {
-          setStart(false)
-          // const audio = new Audio('shrill_whistle6.mp3');
-          audio.play();
-        }}>Stop</div>
-        <div className="btn" onClick={() => {
-          setR(secend)
-        }}>ReSet</div>
-        {/* <audio src="shrill_whistle6.mp3"></audio> */}
-      </div>
+  // })
 
-      {/* <input type="text" name="Turn" id="" onChange={(e) => {
-        setTurn(e.target.value)
-      }} />
-      <input type="text" name="Turn" id="" onChange={(e) => {
-        setSecend(e.target.value)
-      }} /> */}
 
-      {/* <div onClick={() => {
-        clock()
-      }}>倒數開始</div> */}
+  const ring = ()=>{audio.play()};
+
+
+return (
+  <div className="center">
+    <div className='display'>
+      <div className='fontSize' onClick={() => {
+        setEditswitch(editswitch ? false : true)
+      }}>{reciprocal} </div>
+    </div>
+    <div className='display justfy'>
+      {editswitch ? <input onChange={(e) => {
+        setR(e.target.value)
+        setSecend(e.target.value * 1000)
+      }} onBlur={() => {
+        setEditswitch(false)
+      }} /> : null}
+    </div>
+    <div className="display">
+      <div className="btn" onClick={() => {
+        setStart(true);
+        audio.play();
+        settimer(()=>{setTimeout(ring(),secend);})
+      }}>開始</div>
+      <div className="btn" onClick={() => {
+        setStart(false)
+        audio.play();
+        clearTimeout(timer);
+      }}>暫停</div>
+      <div className="btn" onClick={() => {
+        setR(180)
+      }}>重設</div>
     </div>
 
-  )
+  </div>
+
+)
 
 
 }
