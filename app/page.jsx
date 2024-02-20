@@ -45,14 +45,16 @@ export default function Home() {
 
   useEffect(() => {
     SetAudio(new Audio("shrill_whistle6.mp3"));
+    // audio.muted(true)
   }, []);
 
   // useEffect(()=>{
 
   // })
-
-
-  const  time = setTimeout(ring(),secend);
+  
+  // const pla = audio.play();
+  
+  // const  ring = setTimeout(()=>{audio.play()},secend);
 
 
 return (
@@ -73,8 +75,8 @@ return (
     <div className="display">
       <div className="btn" onClick={() => {
         setStart(true);
-        audio.play();
-        settimer(time)
+        // audio.play();
+        setTimeout(()=>(audio.play()),secend);
       }}>開始</div>
       <div className="btn" onClick={() => {
         setStart(false)
