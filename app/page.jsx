@@ -52,7 +52,7 @@ export default function Home() {
   // })
 
 
-  const ring = ()=>{audio.play()};
+  const  time = setTimeout(ring(),secend);
 
 
 return (
@@ -74,7 +74,7 @@ return (
       <div className="btn" onClick={() => {
         setStart(true);
         audio.play();
-        settimer(()=>{setTimeout(ring(),secend);})
+        settimer(time)
       }}>開始</div>
       <div className="btn" onClick={() => {
         setStart(false)
