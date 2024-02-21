@@ -13,7 +13,7 @@ export default function Home() {
   const [audio, SetAudio] = useState("");
   const [editswitch, setEditswitch] = useState(false);
   const [timer,settimer] = useState("")
-  // const audio = new Audio('shrill_whistle6.mp3')
+
 
   let timet
 
@@ -22,39 +22,25 @@ export default function Home() {
       return
     }
     timet = setInterval(() => {
-
-      // console.log(reciprocal)
       setR(reciprocal => reciprocal - 1)
     }, 1000)
-    // console.log(reciprocal)
-
     return () => clearInterval(timet)
   }, [start])
 
   useEffect(() => {
     if (reciprocal === 0) {
       setStart(false)
-      // audio.play()
     } else {
       return
     }
-
-    // console.log(777)
   }, [reciprocal])
 
 
   useEffect(() => {
     SetAudio(new Audio("shrill_whistle6.mp3"));
-    // audio.muted(true)
   }, []);
 
-  // useEffect(()=>{
 
-  // })
-  
-  // const pla = audio.play();
-  
-  // const  ring = setTimeout(()=>{audio.play()},secend);
 
 
 return (
@@ -75,7 +61,7 @@ return (
     <div className="display">
       <div className="btn" onClick={() => {
         setStart(true);
-        // audio.play();
+        audio.play();
         setTimeout(()=>(audio.play()),secend);
       }}>開始</div>
       <div className="btn" onClick={() => {
