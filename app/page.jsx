@@ -44,7 +44,7 @@ export default function Home() {
 
   useEffect(() => {
     SetAudio(new Audio("shrill_whistle6.mp3"));
-    setMusic(new Audio("shrill_whistle6.mp3"))
+    setMusic(new Audio("silence.mp3"))
   }, []);
 
 
