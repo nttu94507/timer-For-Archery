@@ -14,8 +14,10 @@
   
   .center{
     align-items: center;
-    justify-content: center;
-  
+    justify-content:center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
   }
   
   .btn{
@@ -34,7 +36,8 @@
   .fontSize{
     text-align: center;
     font-size: 100px;
-    padding: 60% 30vw 20%;
+    padding-bottom: 20vh;
+    // height: ;
     /* color:rgb(39, 209, 59); */
   
     
@@ -46,9 +49,14 @@
   .green{
     color:rgb(0, 255, 76);
   }
-  .red{
-    color:rgb(255, 228, 20);
+  .yellow{
+    color:rgb(255, 255, 2);
   }
+
+  .red{
+    color: rgb(255, 14, 14);
+  }
+
   
   .display{
     display: flex;
@@ -60,4 +68,8 @@
   
   .justfy{
     justify-content: center;
+    
+  }
+  .toolbar{
+    width: 100vw;
   }

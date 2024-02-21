@@ -14,7 +14,11 @@ export default function Home() {
   const [audio, SetAudio] = useState("");
   const [editswitch, setEditswitch] = useState(false);
   const [timer,settimer] = useState("")
-  const [valuecolor,setValuecolor] = useState(1)
+  // const [valuecolor,setValuecolor] = useState(1)
+  const [yellowtime,setYellowtime] = useState(10)
+  const [readytime,setReadytime] = useState(10)
+  const [music,setMusic] = useState("")
+
 
 
   let timet
@@ -40,27 +44,35 @@ export default function Home() {
 
   useEffect(() => {
     SetAudio(new Audio("shrill_whistle6.mp3"));
+    setMusic(new Audio("shrill_whistle6.mp3"))
   }, []);
 
 
 
 
 return (
-  <div className={styles.center}>
-    <div className={styles.display}>
-      <div className={`${styles.fontSize} ${reciprocal<=10?styles.red:styles.green}`} onClick={() => {
-        setEditswitch(editswitch ? false : true)
+  <div className={`${styles.center} ${styles.display}`}>
+    {/* <div className={styles.display}> */}
+      <div className={`${styles.fontSize} ${reciprocal<=yellowtime?reciprocal<=3?styles.red:styles.yellow:styles.green}`} onClick={() => {
+        setEditswitch(editswitch ? false : true);
+        music.play();
       }}>{reciprocal} </div>
-    </div>
-    <div className={`${styles.display} ${styles.justfy}`}>
-      {editswitch ? <input onChange={(e) => {
+    {/* </div> */}
+    <div className={`${styles.display} ${styles.toolbar}`}>
+      {editswitch ? <div className={`${styles.display} ${styles.center}`} > <input onChange={(e) => {
         setR(e.target.value)
         setSecend(e.target.value * 1000)
       }} onBlur={() => {
         setEditswitch(false)
-      }} /> : null}
+      }} />
+      {/* <input onChange={(e) => {
+        // setR(e.target.value)
+        // setYellowtimed(e.target.value)
+      }} /> */}
+      </div>       
+: null}
     </div>
-    <div className={`${styles.display}`}>
+    <div className={`${styles.display} ${styles.toolbar}`}>
       <div className={`${styles.btn}`} onClick={() => {
         setStart(true);
         audio.play();
