@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useEffect, useState } from "react";
 import './globals.css'
 import Head from 'next/head'
+import styles from './index.module.scss'
 
 export default function Home() {
 
@@ -13,6 +14,7 @@ export default function Home() {
   const [audio, SetAudio] = useState("");
   const [editswitch, setEditswitch] = useState(false);
   const [timer,settimer] = useState("")
+  const [valuecolor,setValuecolor] = useState(1)
 
 
   let timet
@@ -44,13 +46,13 @@ export default function Home() {
 
 
 return (
-  <div className="center">
-    <div className='display'>
-      <div className='fontSize' onClick={() => {
+  <div className={styles.center}>
+    <div className={styles.display}>
+      <div className={`${styles.fontSize} ${reciprocal<=10?styles.red:styles.green}`} onClick={() => {
         setEditswitch(editswitch ? false : true)
       }}>{reciprocal} </div>
     </div>
-    <div className='display justfy'>
+    <div className={`${styles.display} ${styles.justfy}`}>
       {editswitch ? <input onChange={(e) => {
         setR(e.target.value)
         setSecend(e.target.value * 1000)
@@ -58,18 +60,18 @@ return (
         setEditswitch(false)
       }} /> : null}
     </div>
-    <div className="display">
-      <div className="btn" onClick={() => {
+    <div className={`${styles.display}`}>
+      <div className={`${styles.btn}`} onClick={() => {
         setStart(true);
         audio.play();
         setTimeout(()=>(audio.play()),secend);
       }}>計時</div>
-      <div className="btn" onClick={() => {
+      <div className={`${styles.btn}`} onClick={() => {
         setStart(false)
         audio.play();
         clearTimeout(timer);
       }}>暫停</div>
-      <div className="btn" onClick={() => {
+      <div className={`${styles.btn}`} onClick={() => {
         setR(180)
       }}>重設</div>
     </div>
