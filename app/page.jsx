@@ -8,7 +8,7 @@ export default function Home() {
 
   const [turn, setTurn] = useState(6)
   const [secend, setSecend] = useState(180);
-  const [reciprocal, setR] = useState(180);
+  const [reciprocal, setR] = useState(0);
   const [start, setStart] = useState(false);
   const [audio, SetAudio] = useState("");
   const [editswitch, setEditswitch] = useState(false);
@@ -63,7 +63,7 @@ return (
         setStart(true);
         audio.play();
         setTimeout(()=>(audio.play()),secend);
-      }}>開始</div>
+      }}>計時</div>
       <div className="btn" onClick={() => {
         setStart(false)
         audio.play();
@@ -73,7 +73,6 @@ return (
         setR(180)
       }}>重設</div>
     </div>
-
   </div>
 
 )

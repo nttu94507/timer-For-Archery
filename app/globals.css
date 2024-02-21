@@ -37,16 +37,29 @@ body {
 }
 
 .btn{
-  padding: 10vh 6%; 
+  /* padding: 10vh 6%;  */
   font-size: 35px;
+  flex:1;
+  /* background-color: #72d37f; */
+  text-align: center;
+  border-radius: 10%;
+}
+.btn:active{
+  /* transition:scale(0.9);
+   */
+   background-color: #fff;
 }
 
 .fontSize{
   text-align: center;
   font-size: 100px;
-  padding: 10vh 30vw;
+  padding: 60% 30vw 20%;
   /* color:rgb(39, 209, 59); */
+
   color:rgb(0, 255, 76);
+  /* text-align: center; */
+  justify-content: center;
+  align-items: center;
 }
 
 .display{
