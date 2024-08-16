@@ -9,7 +9,7 @@ export default function Home() {
 
   const [turn, setTurn] = useState(6)
   const [secend, setSecend] = useState(180);
-  const [reciprocal, setR] = useState(0);
+  const [reciprocal, setR] = useState(180);
   const [start, setStart] = useState(false);
   const [audio, SetAudio] = useState("");
   const [editswitch, setEditswitch] = useState(false);
@@ -59,7 +59,7 @@ return (
       }}>{reciprocal} </div>
     {/* </div> */}
     <div className={`${styles.display} ${styles.toolbar}`}>
-      {editswitch ? <div className={`${styles.display} ${styles.center}`} > <input onChange={(e) => {
+      {editswitch ? <div className={`${styles.display} ${styles.center}`} > <input placeholder="請輸入秒數" onChange={(e) => {
         setR(e.target.value)
         setSecend(e.target.value * 1000)
       }} onBlur={() => {
@@ -74,10 +74,15 @@ return (
     </div>
     <div className={`${styles.display} ${styles.toolbar}`}>
       <div className={`${styles.btn}`} onClick={() => {
-        setStart(true);
-        audio.play();
-        setTimeout(()=>(audio.play()),secend);
-      }}>計時</div>
+        if(reciprocal > 0){
+          setStart(true);
+          audio.play();
+          setTimeout(()=>(audio.play()),secend);
+        }else{
+          return
+        }
+
+      }}>開始</div>
       <div className={`${styles.btn}`} onClick={() => {
         setStart(false)
         audio.play();

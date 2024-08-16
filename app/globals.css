@@ -29,6 +29,10 @@ body {
   justify-content: center;
   height: 100vh;
 }
+
+input {
+  color: black;
+}
 /* 
 .center{
   align-items: center;
